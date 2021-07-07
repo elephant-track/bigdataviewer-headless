@@ -2,9 +2,26 @@
 
 Run [ExportImagePlusPlugin](https://imagej.net/plugins/bdv/#exporting-from-imagej-stacks) in headless mode.
 
-## Usage
+## Getting started
 
-### 1. Prepare a ImageJ macro (e.g. Groovy)
+### 1. Install
+
+```
+git clone git@github.com:elephant-track/bigdataviewer-headless.git
+```
+
+```
+cd bigdataviewer-headless
+mvn clean package
+```
+
+Please replace `$FIJI_HOME` depending on your environment.
+
+```
+cp target/bigdataviewer-headless-0.0.1-SNAPSHOT.jar $FIJI_HOME/jars
+```
+
+### 2. Prepare an ImageJ macro (e.g. Groovy)
 
 ```
 import java.io.File
@@ -29,7 +46,9 @@ def main() {
 main()
 ```
 
-### 2. Run a macro in headless mode
+You can find [an example](scripts/ctc2bdv.groovy) of converting a data set in Cell Tracking Challenge format to BDV format.
+
+### 3. Run a macro in headless mode
 
 (Windows)
 
