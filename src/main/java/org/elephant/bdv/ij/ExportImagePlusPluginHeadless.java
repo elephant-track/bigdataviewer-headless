@@ -22,9 +22,6 @@
 package org.elephant.bdv.ij;
 
 import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -59,7 +56,6 @@ import mpicbg.spim.data.sequence.Channel;
 import mpicbg.spim.data.sequence.FinalVoxelDimensions;
 import mpicbg.spim.data.sequence.TimePoint;
 import mpicbg.spim.data.sequence.TimePoints;
-import net.imagej.ImageJ;
 import net.imglib2.FinalDimensions;
 import net.imglib2.RandomAccessibleInterval;
 import net.imglib2.realtransform.AffineTransform3D;
@@ -69,20 +65,10 @@ import net.imglib2.util.Intervals;
  * ImageJ plugin to export the current image to xml/hdf5.
  *
  * @author Tobias Pietzsch &lt;tobias.pietzsch@gmail.com&gt;
+ * @author Ko Sugawara
  */
 public class ExportImagePlusPluginHeadless implements Command
 {
-	public static void main( final String[] args ) throws IOException
-	{
-		new ImageJ();
-		IJ.run( "Confocal Series (2.2MB)" );
-		final Path tempDir = Files.createTempDirectory( null );
-		Macro.setOptions( "export_path=" + tempDir.toString() + File.separator + "tmp.xml" );
-		new ExportImagePlusPluginHeadless().run();
-		// Clean up
-		Files.walk( tempDir ).map( Path::toFile ).forEach( File::delete );
-		Files.delete( tempDir );
-	}
 
 	@Override
 	public void run()
