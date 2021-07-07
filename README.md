@@ -30,11 +30,13 @@ import java.nio.file.Path
 
 import ij.IJ
 import ij.Macro
-import org.elephant.util.ExportImagePlusPluginHeadless
+import ij.macro.Interpreter
+import org.elephant.bdv.ij.ExportImagePlusPluginHeadless
 
 
 def main() {
-    IJ.run( "Confocal Series (2.2MB)" )
+    Interpreter.setBatchMode(true)
+    IJ.createImage( "Stack", "8-bit", 16, 16, 1, 8, 2 ).show()
     def tempDir = Files.createTempDirectory( null )
     Macro.setOptions( "export_path=" + tempDir.toString() + File.separator + "tmp.xml" )
     new ExportImagePlusPluginHeadless().run()
@@ -44,6 +46,7 @@ def main() {
 }
 
 main()
+
 ```
 
 You can find [an example](scripts/ctc2bdv.groovy) of converting a data set in Cell Tracking Challenge format to BDV format.
