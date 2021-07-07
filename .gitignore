@@ -1,0 +1,12 @@
+.DS_Store
+**/..classpath
+**/.project
+**/.settings/
+**/target/
+*.orig
+*.iml
+.classpath
+.project
+.settings
+/target
+/samples

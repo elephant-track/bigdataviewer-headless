@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0   http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.scijava</groupId>
+		<artifactId>pom-scijava</artifactId>
+		<version>29.2.1</version>
+	</parent>
+
+	<groupId>org.elephant</groupId>
+	<artifactId>bigdataviewer-headless</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<name>BigDataViewer Headless</name>
+	<description>BigDataViewer commands runnable in headless mode</description>
+	<url>https://github.com/elephant-track/bigdataviewer-headless</url>
+	<inceptionYear>2021</inceptionYear>
+	<organization>
+		<name>Institut de génomique fonctionnelle de Lyon</name>
+		<url>http://igfl.ens-lyon.fr/</url>
+	</organization>
+	<licenses>
+		<license>
+			<name>GNU General Public License v3+</name>
+			<url>https://www.gnu.org/licenses/gpl.html</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<developers>
+		<!-- See https://imagej.net/Team -->
+		<developer>
+			<id>ksugar</id>
+			<name>Ko Sugawara</name>
+			<url>http://igfl.ens-lyon.fr/igfl/annuaire/sugawara-ko</url>
+			<roles>
+				<role>founder</role>
+				<role>lead</role>
+				<role>developer</role>
+				<role>debugger</role>
+				<role>reviewer</role>
+				<role>support</role>
+				<role>maintainer</role>
+			</roles>
+		</developer>
+	</developers>
+
+	<contributors>
+		<contributor>
+			<name>None</name>
+		</contributor>
+	</contributors>
+
+	<mailingLists>
+		<mailingList>
+			<name>ImageJ Forum</name>
+			<archive>http://forum.imagej.net/</archive>
+		</mailingList>
+	</mailingLists>
+
+	<scm>
+		<connection>scm:git:git://github.com/elephant-track/bigdataviewer-headless</connection>
+		<developerConnection>scm:git:git@github.com:elephant-track/bigdataviewer-headless</developerConnection>
+		<tag>HEAD</tag>
+		<url>https://github.com/elephant-track/bigdataviewer-headless</url>
+	</scm>
+	<issueManagement>
+		<system>GitHub Issues</system>
+		<url>${scmUrl}/issues</url>
+	</issueManagement>
+	<ciManagement>
+		<system>None</system>
+	</ciManagement>
+
+	<properties>
+		<package-name>org.elephant.bdv.ij</package-name>
+		<main-class>org.elephant.bdv.ij.ExportImagePlusPluginHeadless</main-class>
+		<license.licenseName>gpl_v3</license.licenseName>
+		<license.copyrightOwners>Ko Sugawara</license.copyrightOwners>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>scijava.public</id>
+			<url>https://maven.scijava.org/content/groups/public</url>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>sc.fiji</groupId>
+			<artifactId>bigdataviewer_fiji</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>sc.fiji</groupId>
+			<artifactId>bigdataviewer-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>net.imagej</groupId>
+			<artifactId>imagej</artifactId>
+		</dependency>
+	</dependencies>
+</project>
