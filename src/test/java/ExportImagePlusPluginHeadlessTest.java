@@ -9,7 +9,6 @@ import org.junit.Test;
 import ij.IJ;
 import ij.Macro;
 import ij.macro.Interpreter;
-import net.imagej.ImageJ;
 
 public class ExportImagePlusPluginHeadlessTest
 {
@@ -18,8 +17,8 @@ public class ExportImagePlusPluginHeadlessTest
 	public void testRun() throws IOException
 	{
 		Interpreter.batchMode = true;
-		new ImageJ();
-		IJ.run( "Confocal Series (2.2MB)" );
+		Thread.currentThread().setName( "Run$_" + Thread.currentThread().getName() );
+		IJ.createImage( "Stack", "8-bit", 16, 16, 1, 8, 2 ).show();
 		final Path tempDir = Files.createTempDirectory( null );
 		Macro.setOptions( "export_path=" + tempDir.toString() + File.separator + "tmp.xml" );
 		new ExportImagePlusPluginHeadless().run();
