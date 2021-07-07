@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import ij.IJ;
 import ij.Macro;
+import ij.macro.Interpreter;
 import net.imagej.ImageJ;
 
 public class ExportImagePlusPluginHeadlessTest
@@ -16,6 +17,7 @@ public class ExportImagePlusPluginHeadlessTest
 	@Test
 	public void testRun() throws IOException
 	{
+		Interpreter.batchMode = true;
 		new ImageJ();
 		IJ.run( "Confocal Series (2.2MB)" );
 		final Path tempDir = Files.createTempDirectory( null );
