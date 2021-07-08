@@ -2,7 +2,7 @@ import ij.IJ
 import ij.Macro
 import ij.macro.Interpreter
 import ij.plugin.Concatenator
-import org.elephant.util.ExportImagePlusPluginHeadless
+import org.elephant.bdv.ij.ExportImagePlusPluginHeadless
 
 #@ File (label = "Input directory", style = "directory") input
 #@ File (label = "Output file (.xml)", style = "file") output
