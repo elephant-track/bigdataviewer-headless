@@ -74,7 +74,7 @@ public class ExportImagePlusPluginHeadless implements Command
 	public void run()
 	{
 		final String options = Macro.getOptions();
-		System.out.println( options );
+		IJ.showMessage( options );
 		String seqFilename = null;
 		if ( options != null && options.contains( "export_path=" ) )
 		{

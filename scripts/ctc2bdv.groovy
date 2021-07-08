@@ -1,6 +1,7 @@
 import ij.IJ
 import ij.Macro
 import ij.macro.Interpreter
+import ij.WindowManager
 import ij.plugin.Concatenator
 import org.elephant.bdv.ij.ExportImagePlusPluginHeadless
 
@@ -51,13 +52,12 @@ def main() {
     printDimensions(dims, cal)
 	println "Generate BDV files in " + output.getParentFile()
 	output.getParentFile().mkdirs()
-    Macro.abort = false
+    def temp = WindowManager.getTempCurrentImage()
+    WindowManager.setTempCurrentImage( imp )
     Macro.setOptions("export_path=" + output)
-    Interpreter.setBatchMode(true)
-    imp.show()
     new ExportImagePlusPluginHeadless().run()
-    Interpreter.setBatchMode(false)
     Macro.setOptions(null)
+    WindowManager.setTempCurrentImage( temp )
 }
 
 def printDimensions(def dims, def cal) {
